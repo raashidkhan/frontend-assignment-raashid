@@ -1,0 +1,26 @@
+.header {
+  background: #0070f3;
+  & > div {
+    color: #fff;
+    padding: 10px 5vw;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: calc(1200px + 10vw);
+    margin-inline: auto;
+    width: 100%;
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    button {
+      background: #0070f3;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      font-size: 1.1rem;
+      border-radius: 20px;
+    }
+  }
+}

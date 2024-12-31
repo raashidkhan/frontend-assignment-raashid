@@ -1,0 +1,20 @@
+.breadcrumb {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+
+  span {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    a {
+      border-bottom: 2px solid transparent;
+    }
+  }
+
+  .activeLink {
+    color: #0070f3;
+    border-bottom: 2px solid;
+  }
+}
