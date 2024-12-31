@@ -3,9 +3,12 @@ import PageLayout from "@/components/PageLayout";
 import Head from "next/head";
 import Link from "next/link";
 
-export default async function PostPage({ params }: { params: { id: string } }) {
-  const { id } = params;
-
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) {
     return <h1>Post Not Found</h1>;
