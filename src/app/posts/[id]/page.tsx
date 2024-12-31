@@ -3,7 +3,7 @@ import PageLayout from "@/components/PageLayout";
 import Head from "next/head";
 import Link from "next/link";
 
-export async function fetchPostById(id: string) {
+async function fetchPostById(id: string) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!res.ok) {
     throw new Error("Post Not Found");
