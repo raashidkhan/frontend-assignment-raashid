@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import PageLayout from "@/components/PageLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import Head from "next/head";
 
 export default function NewPost() {
   const [title, setTitle] = useState("");
@@ -41,6 +42,12 @@ export default function NewPost() {
 
   return (
     <PageLayout>
+      <Head>
+        <title>New Post:</title>
+        <meta name="description" content={`New Post`} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`/posts/new`} />
+      </Head>
       <Breadcrumb links={breadcrumbLinks} activeLink="/posts/new" />
       <form onSubmit={handleSubmit}>
         <h1>Create a New Post</h1>
