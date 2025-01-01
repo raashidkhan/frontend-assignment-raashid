@@ -21,8 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3003";
-    const res = await fetch(`${baseUrl}/api/posts`, { cache: "no-store" });
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      next: { revalidate: 60 },
+    });
 
     if (!res.ok) {
       return <div>Error loading posts</div>;
@@ -39,9 +40,8 @@ export default async function HomePage() {
         </Head>
         <PageLayout>
           <Breadcrumb links={breadcrumbLinks} activeLink="/" />
-          <p>Fetched from {posts.source}</p>
           <div className="cards-container">
-            {posts.data.map((post: POSTS) => (
+            {posts.map((post: POSTS) => (
               <Link href={`/posts/${post.id}`} key={post.id}>
                 <div className="card">
                   <h3>{post.title}</h3>
